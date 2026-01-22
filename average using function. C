@@ -1,0 +1,14 @@
+#include <stdio.h>
+
+float average(int a, int b) {
+    return (a + b) / 2.0;
+}
+
+int main() {
+    int x, y;
+    printf("Enter two numbers: ");
+    scanf("%d %d", &x, &y);
+
+    printf("Average = %.2f\n", average(x, y));
+    return 0;
+}

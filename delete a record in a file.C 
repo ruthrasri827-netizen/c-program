@@ -1,0 +1,26 @@
+#include <stdio.h>
+
+int main() {
+    FILE *f = fopen("records.txt", "r");
+    FILE *temp = fopen("temp.txt", "w");
+    int id, delId;
+    char name[50];
+
+    printf("Enter ID to delete: ");
+    scanf("%d", &delId);
+
+    while (fscanf(f, "%d %s", &id, name) != EOF) {
+        if (id != delId) {
+            fprintf(temp, "%d %s\n", id, name);
+        }
+    }
+
+    fclose(f);
+    fclose(temp);
+
+    remove("records.txt");
+    rename("temp.txt", "records.txt");
+
+    printf("Record deleted successfully!\n");
+    return 0;
+}

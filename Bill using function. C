@@ -1,0 +1,25 @@
+#include <stdio.h>
+
+// Function to calculate total bill
+float calculateBill(int qty, float price) {
+    float total = qty * price;
+    float gst = total * 0.18;  // 18% GST
+    return total + gst;
+}
+
+int main() {
+    int quantity;
+    float price;
+
+    printf("Enter quantity: ");
+    scanf("%d", &quantity);
+
+    printf("Enter price: ");
+    scanf("%f", &price);
+
+    float bill = calculateBill(quantity, price);
+
+    printf("Total bill amount (including GST): %.2f\n", bill);
+
+    return 0;
+}

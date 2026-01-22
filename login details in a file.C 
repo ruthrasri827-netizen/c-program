@@ -1,0 +1,29 @@
+#include <stdio.h>
+
+int main() {
+    FILE *file;
+    char username[50];
+    char password[50];
+
+    
+    file = fopen("login.txt", "a");
+
+    if (file == NULL) {
+        printf("Error opening file!\n");
+        return 1;
+    }
+
+    printf("Enter Username: ");
+    scanf("%s", username);
+
+    printf("Enter Password: ");
+    scanf("%s", password);
+
+    
+    fprintf(file, "%s %s\n", username, password);
+
+    fclose(file);
+
+    printf("Login details saved successfully!\n");
+    return 0;
+}

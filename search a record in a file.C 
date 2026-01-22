@@ -1,0 +1,19 @@
+#include <stdio.h>
+
+int main() {
+    FILE *f = fopen("records.txt", "r");
+    int id, sid;
+    char name[50];
+    scanf("%d", &sid);
+
+    while (fscanf(f, "%d %s", &id, name) != EOF) {
+        if (id == sid) {
+            printf("Found: %d %s\n", id, name);
+            fclose(f);
+            return 0;
+        }
+    }
+    printf("Not found\n");
+    fclose(f);
+    return 0;
+}
